@@ -19,8 +19,8 @@ def main():
     MODEL_WEIGHTS = r"C:\Users\Lucas Dev\Downloads\neuralens_generalized\runs\detect\train4\weights\last.pt"
     
     IMG_SIZE = 640 
-    BATCH_SIZE = 32  # 3060 Ti can easily handle 16 or 32 at 640px
-    EPOCHS = 100     # Increased for better generalization
+    BATCH_SIZE = 32  
+    EPOCHS = 100     
     DEVICE = 0       
 
     # Load Model
