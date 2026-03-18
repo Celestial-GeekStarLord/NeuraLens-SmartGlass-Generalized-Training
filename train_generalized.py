@@ -2,7 +2,7 @@ import torch
 from ultralytics import YOLO
 
 def main():
-    # 1. GPU Optimization
+    
     # RTX 3060 Ti has Ampere Tensor Cores; this enables faster 32-bit float math
     torch.backends.cudnn.benchmark = True 
     torch.cuda.empty_cache()
