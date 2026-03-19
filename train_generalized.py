@@ -10,7 +10,7 @@ def main():
     print(f"--- Training Optimized for {torch.cuda.get_device_name(0)} ---")
 
     
-    # CONFIGURATION
+    # CONFIGURATION5
     
     DATA_YAML = r"C:\Users\Lucas Dev\Downloads\neuralens_generalized\data.yaml"
     
