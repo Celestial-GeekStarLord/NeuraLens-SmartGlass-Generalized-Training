@@ -16,7 +16,7 @@ def main():
     
     # Since you have 8GB VRAM, we can use the 'Medium' model (yolo11m.pt) 
     # for significantly better generalization than the 'Nano' model.
-    MODEL_WEIGHTS = r"C:\Users\Lucas Dev\Downloads\neuralens_generalized\runs\detect\train4\weights\best.pt"
+    MODEL_WEIGHTS = r"C:\Users\Lucas Dev\Downloads\neuralens_generalized\runs\detect\train4\weights\last.pt"
     
     IMG_SIZE = 640 
     BATCH_SIZE = 16
@@ -31,7 +31,7 @@ def main():
     
     model.train(
         data=DATA_YAML,
-        resume=True,
+        resume=True,       # Start fresh training (not resuming)
         epochs=EPOCHS,
         imgsz=IMG_SIZE,
         batch=BATCH_SIZE,
@@ -45,7 +45,7 @@ def main():
         
         # --- GENERALIZATION & ACCURACY ---
         optimizer="AdamW",  # Better for modern RTX cards than SGD
-        lr0=0.0005,
+        lr0=0.0003,
         lrf=0.01,          # Initial learning rate for AdamW
         cos_lr=True,        # Use cosine learning rate scheduler for better convergence
         
@@ -55,11 +55,11 @@ def main():
         copy_paste=0.2,     # Good for segmenting/detecting objects in cluttered scenes
         degrees=10.0,  
         
-        hsv_h=0.02
-        hsv_s=0.8
-        hsv_v=0.5
-        scale=0.7
-        translate=0.2     # Slight rotations for robustness
+        hsv_h=0.02,
+        hsv_s=0.8,
+        hsv_v=0.5,
+        scale=0.7,
+        translate=0.2,     # Slight rotations for robustness
     )
 
 if __name__ == "__main__":
