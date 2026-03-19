@@ -16,11 +16,11 @@ def main():
     
     # Since you have 8GB VRAM, we can use the 'Medium' model (yolo11m.pt) 
     # for significantly better generalization than the 'Nano' model.
-    MODEL_WEIGHTS = r"C:\Users\Lucas Dev\Downloads\neuralens_generalized\runs\detect\train4\weights\last.pt"
+    MODEL_WEIGHTS = r"C:\Users\Lucas Dev\Downloads\neuralens_generalized\runs\detect\train4\weights\best.pt"
     
     IMG_SIZE = 640 
-    BATCH_SIZE = 32  
-    EPOCHS = 100     
+    BATCH_SIZE = 16
+    EPOCHS = 150     
     DEVICE = 0       
 
     # Load Model
@@ -38,21 +38,28 @@ def main():
         device=DEVICE,
         # 'workers' speeds up data loading. For 3060 Ti on Windows, 4-8 is ideal.
         workers=8, 
-        patience = 20,
+        patience = 30,
         # --- GPU & SENSOR CORE TECH ---
         amp=True,           # Enables Automatic Mixed Precision (Uses Tensor Cores)
         plots=True,         # Generates training charts
         
         # --- GENERALIZATION & ACCURACY ---
         optimizer="AdamW",  # Better for modern RTX cards than SGD
-        lr0=0.001,          # Initial learning rate for AdamW
+        lr0=0.0005,
+        lrf=0.01,          # Initial learning rate for AdamW
         cos_lr=True,        # Use cosine learning rate scheduler for better convergence
         
         # --- AUGMENTATION (Generalization) ---
         mosaic=1.0,         # Combines 4 images to help detect small objects
-        mixup=0.1,          # Creates composite images to prevent overfitting
-        copy_paste=0.1,     # Good for segmenting/detecting objects in cluttered scenes
-        degrees=10.0,       # Slight rotations for robustness
+        mixup=0.2,          # Creates composite images to prevent overfitting
+        copy_paste=0.2,     # Good for segmenting/detecting objects in cluttered scenes
+        degrees=10.0,  
+        
+        hsv_h=0.02
+        hsv_s=0.8
+        hsv_v=0.5
+        scale=0.7
+        translate=0.2     # Slight rotations for robustness
     )
 
 if __name__ == "__main__":
