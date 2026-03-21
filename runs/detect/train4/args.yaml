@@ -1,6 +1,6 @@
 task: detect
 mode: train
-model: C:\Users\Lucas Dev\Downloads\neuralens_generalized\runs\detect\train4\weights\last.pt
+model: C:\Users\Lucas Dev\Downloads\neuralens_generalized\runs\detect\train4\weights\best.pt
 data: C:\Users\Lucas Dev\Downloads\neuralens_generalized\data.yaml
 epochs: 100
 time: null
@@ -24,7 +24,7 @@ single_cls: false
 rect: false
 cos_lr: true
 close_mosaic: 10
-resume: C:\Users\Lucas Dev\Downloads\neuralens_generalized\runs\detect\train4\weights\last.pt
+resume: C:\Users\Lucas Dev\Downloads\neuralens_generalized\runs\detect\train4\weights\best.pt
 amp: true
 fraction: 1.0
 profile: false
