@@ -5,7 +5,7 @@ def main():
     model = YOLO(r"C:\Users\Lucas Dev\Downloads\neuralens_generalized\runs\detect\train4\weights\last.pt")
     model.to("cuda:0")  # Move model to GPU for faster inference
     url = "https://192.168.18.4:8080/video"  # URL of the IP camera stream
-    cap = cv2.VideoCapture(url)  # Open the video stream
+    cap = cv2.VideoCapture(0)  # Open the video stream
     
     if not cap.isOpened():
         print ("camera error")
