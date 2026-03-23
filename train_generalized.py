@@ -15,7 +15,7 @@ def main():
     DATA_YAML = r"C:\Users\Lucas Dev\Downloads\neuralens_generalized\data.yaml"
     
     # Since you have 8GB VRAM, we can use the 'Medium' model (yolo11m.pt) 
-    # for significantly better generalization than the 'Nano' model.
+
     MODEL_WEIGHTS = r"C:\Users\Lucas Dev\Downloads\neuralens_generalized\runs\detect\train8\weights\last.pt"
     
     IMG_SIZE = 640 
