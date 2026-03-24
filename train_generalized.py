@@ -31,7 +31,7 @@ def main():
     
     model.train(
         data=DATA_YAML,
-        resume=True,       # Start fresh training (not resuming)
+        resume=True,      
         epochs=EPOCHS,
         imgsz=IMG_SIZE,
         batch=BATCH_SIZE,
